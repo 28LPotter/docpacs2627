@@ -12,7 +12,17 @@ const http = require('http');
 const { text } = require('stream/consumers');
 const server = http.createServer((req, res) => {
     if (req.url === '/form') {
-        if (req.method === 'POST') {}
+        if (req.method === 'POST') {
+            let body = '';
+
+            req.on('data', (chunk) => {
+                 body = body + chunk
+            });
+
+            req.on('end', () => {
+                console.log(body)
+            });
+        }
         //if post request
         //read form body data
     } else {
@@ -24,7 +34,7 @@ const server = http.createServer((req, res) => {
                 res.end('Error reading file')
             } else {
                 res.writeHead(200, { 'content-type': 'text/html' })
-                res.end(data)
+                res.end('success')
             }
         })
     }
