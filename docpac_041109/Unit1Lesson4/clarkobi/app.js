@@ -13,31 +13,35 @@ const { text } = require('stream/consumers');
 const server = http.createServer((req, res) => {
     if (req.url === '/form') {
         if (req.method === 'POST') {
+            console.log ('received POST')
             let body = '';
 
             req.on('data', (chunk) => {
+                console.log ('received Chunk')
                  body = body + chunk
             });
 
             req.on('end', () => {
+                console.log ('received end')
                 console.log(body)
+                res.writeHead(200, { 'Content-Type': 'text/plain' })
+                res.end(body)
             });
         }
-        //if post request
-        //read form body data
-    } else {
+        if (req.method === 'GET') {
 
-        fs.readFile('pages/form.html', 'utf8', (err, data) => {
+                    fs.readFile('pages/form.html', 'utf8', (err, data) => {
             if (err) {
 
                 res.writeHead(500, { 'Content-Type': 'text/plain' })
                 res.end('Error reading file')
             } else {
                 res.writeHead(200, { 'content-type': 'text/html' })
-                res.end('success')
-            }
+                res.end(data)
+            } 
         })
-    }
+        }
+    }  
 }
 );
 
