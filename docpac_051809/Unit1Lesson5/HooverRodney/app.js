@@ -43,7 +43,7 @@ const server = http.createServer(function (req, res) {
     } else if (req.method == 'GET' && url.pathname === '/query') {
         const message = url.searchParams.get('message');
         if (message == null) {
-            res.writeHead(200, { 'Content-Type': 'text/plain' });
+            res.writeHead(400, { 'Content-Type': 'text/plain' });
             res.end("Please provide a message parameter: /query?message=YourMessage");
         } else {
             res.writeHead(200, { 'Content-Type': 'text/plain' });
