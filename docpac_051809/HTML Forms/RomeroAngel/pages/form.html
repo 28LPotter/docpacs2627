@@ -4,16 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Hi! I'm doing an HTML FORM!!!! For ALL your group planning needs!!!</title>
 </head>
 
 <body>
     <h1>Information Form</h1>
 
-    <form method="POST" action="/form">
+    <form method="POST" action="/form" id="projectInterestForm">
 
         <label for="studentName">Your Name Please!!!</label>
-        <input type="text" id="userName" name="userName" required>
+        <input type="text" id="studentName" name="studentName" required>
         <br>
         <label for="email">School Email Goes Here:</label>
         <input type="email" id="email" name="email" required>
@@ -74,10 +74,8 @@
         <br>
         <br>
 
-
         <input type="hidden" name="formtype" value="projectInterest">
         <button type="submit">Submit</button>
-
         <br>
         <button type="reset">Clear EVERYTHING!!!!</button>
 
@@ -85,7 +83,6 @@
             technologies you want to do. Add an explanation for your idea as well!</p>
 
         <p>Short Explanation: We are making this in order to send user request on our server :D</p>
-
 
     </form>
 </body>
