@@ -9,7 +9,7 @@ const PORT = process.env.PORT
 
 server = http.createServer((req, res) => {
 
-    let parsed = url.parse(req.url)
+    let parsed = url.parse(req.url, true)
 
     if (req.url == "/form") {
 
@@ -45,13 +45,13 @@ server = http.createServer((req, res) => {
         res.writeHead(200, { 'Content-Type': 'text/plain' })
         res.end("Hello World")
     } else if (parsed.pathname == "/query") {
-        if (parsed.pathname.message) {
+        if (parsed.query.message != null) {
             res.writeHead(200, { 'Content-Type': 'text/plain' })
-            res.end(parsed.query.message)
+            res.end("Your message was", parsed.query.message)
         } else {
             res.writeHead(200, { 'Content-Type': 'text/plain' })
-            res.end("formatting issue")
-            console.log(parsed.query + " " + parsed.query.message)
+            res.end("make sure your message is in the format of: website/query?message=yourmessagehere")
+            console.log("parsed.query value:", parsed.query, "parsed.query.message value:", parsed.query.message)
         }
 
     } else {
