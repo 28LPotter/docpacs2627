@@ -1,0 +1,11 @@
+{
+  "name": "touch-controls",
+  "version": "1.0.0",
+  "main": "touch.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Logan Potter",
+  "license": "ISC",
+  "description": ""
+}
