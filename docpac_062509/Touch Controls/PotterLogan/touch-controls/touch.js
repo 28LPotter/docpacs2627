@@ -48,7 +48,19 @@ addEventListener("touchmove", (event) => {
     deltaX = currentX - startX
     deltaY = currentY - startY
 
-    object.style.top = `${deltaY}px`
+    localX = event.touches[0].clientX - areaRectangle.left
+    localY = event.touches[0].clientY - areaRectangle.top
+
+    object.style.top = `${localY - 25}px`
+    object.style.left = `${localX - 25}px`
+
+
+})
+
+addEventListener("touchend", (event) => {
+
+    object.style.top = `${localY - 25}px`
+    object.style.left = `${localX - 25}px`
 
 
 })
