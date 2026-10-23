@@ -21,6 +21,16 @@ margin-bottom: 10px;
 font-family: Arial, Helvetica, Geneva, Swiss, sans-serif;
 }
 
+img { 
+    border: 0px; 
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
 h3 
 {
 margin-top: 17px; 
